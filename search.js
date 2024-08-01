@@ -1,5 +1,5 @@
 const query = new URLSearchParams(window.location.search).get('query');
-const resultsDiv = document.getElementById('results');
+const messageDiv = document.getElementById('message');
 
 const pages = {
     'western cat': 'western-cat.html',
@@ -12,10 +12,10 @@ const pages = {
 if (query) {
     const resultPage = pages[query.toLowerCase()];
     if (resultPage) {
-        resultsDiv.innerHTML = `<p>Found result for "${query}": <a href="${resultPage}">${query}</a></p>`;
+        window.location.href = resultPage;
     } else {
-        resultsDiv.innerHTML = `<p>No results found for "${query}".</p>`;
+        messageDiv.innerHTML = `<p>No results found for "${query}".</p>`;
     }
 } else {
-    resultsDiv.innerHTML = `<p>No query provided.</p>`;
+    messageDiv.innerHTML = `<p>No query provided.</p>`;
 }
